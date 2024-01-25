@@ -133,13 +133,12 @@ def main() -> int:
     if not sys.stdin.isatty():
         markdown = ''.join(line for line in sys.stdin)
     # get markdown from files:
-    else:
-        for file in args.files:
-            try:
-                with open(file) as f:
-                    markdown += f.read()
-            except:
-                msg_warn('file error: ' + file)
+    for file in args.files:
+        try:
+            with open(file) as f:
+                markdown += f.read()
+        except:
+            msg_warn('file error: ' + file)
 
     # set plain template:
     if args.body_only:

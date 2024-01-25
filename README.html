@@ -25,7 +25,7 @@ of hacky right now because that's the way I generally do things.</p>
 </pre></code>
 <h1 id="Usage">Usage</h1>
 <h2 id="Python API Usage">Python API Usage</h2>
-<pre><code class="language-python">from md_html import MarkdownHTML
+<pre><code class="language-python">from mdthtml import MarkdownHTML
 
 text = (&quot;&quot;&quot;---
 title: Test Document
@@ -37,7 +37,7 @@ author: mags
 Some code:
 
     sudo mount /dev/sda2 /mnt/nas
-&quot;&quot;&quot;
+&quot;&quot;&quot;)
 
 mdhtml = MarkdownHTML()
 mdhtml.parse(text)

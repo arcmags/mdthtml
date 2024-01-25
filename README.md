@@ -38,7 +38,7 @@ author: mags
 Some code:
 
     sudo mount /dev/sda2 /mnt/nas
-"""
+""")
 
 mdhtml = MarkdownHTML()
 mdhtml.parse(text)
