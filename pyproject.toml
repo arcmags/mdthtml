@@ -1,0 +1,35 @@
+[project]
+name = "mdthtml"
+description = "Convert commonmark+ flavored markdown to HTML"
+authors = [{name = "Chris Magyar", email = "c.magyar.ec@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.9"
+license.text = "GPL-3.0"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "markdown-it-py",
+    "mdit-py-plugins",
+    "pyyaml",
+]
+dynamic = ["version"]
+
+[project.scripts]
+mdthtml = "mdthtml.cli:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version.attr = "mdthtml.__version__"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["assets/*"]

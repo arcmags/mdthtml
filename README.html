@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>mdthtml</title>
+<meta name="author" content="Chris Magyar">
+<meta name="description" content="Commonmark-plus flavored markdown to html parser.">
+<link rel="stylesheet" href="css/main.css">
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="data:,">
+</head>
+
+<body>
+<p>Markdown parser with extras built in. This project is a bunch of additions to
+<a href="https://github.com/executablebooks/markdown-it-py" target="_blank">markdown-it-py</a>. It's kind
+of hacky right now because that's the way I generally do things.</p>
+<h1 id="Installation">Installation</h1>
+<p>This is beta-alpha right now so it ain't on pip yet!</p>
+<p>Clone the repo and use make to build and install into a venv:</p>
+<pre><code><span class="prompt">$ </span>make venv
+</pre></code>
+<p>Or install into a pipx managed venv:</p>
+<pre><code><span class="prompt">$ </span>make pipx
+</pre></code>
+<h1 id="Usage">Usage</h1>
+<h2 id="Python API Usage">Python API Usage</h2>
+<pre><code class="language-python">from md_html import MarkdownHTML
+
+text = (&quot;&quot;&quot;---
+title: Test Document
+author: mags
+---
+
+# Heading
+
+Some code:
+
+    sudo mount /dev/sda2 /mnt/nas
+&quot;&quot;&quot;
+
+mdhtml = MarkdownHTML()
+mdhtml.parse(text)
+print(mdhtml.html)
+</code></pre>
+<h2 id="Command Line Usage">Command Line Usage</h2>
+<p>Accepts stdin and/or a list of files. Outputs to stdout or a single file.</p>
+<pre><code>mdthtml [OPTION...] [FILE...]
+</pre></code>
+<h3 id="Options">Options</h3>
+<pre><code>-c, --css &lt;PATH&gt;
+    Add link to css stylesheet. PATH does not necessarily need to exist.
+
+-R, --relative
+
+    Calculate css path relative to first FILE.
+
+-f, --template-file &lt;FILE&gt;
+    Template file.
+
+-o, --output &lt;FILE&gt;
+    Output to file.
+
+-O, --auto
+    Automatically name output file based on last file supplied.
+
+-t, --title &lt;TITLE&gt;
+    Title to include in head, overrides any metadata in document.
+
+-B, --body-only
+    Output html body content only. ('{content}' as template string)
+
+-M, --meta-only
+    Output html meta content only. ('{metatdata}' as template string)
+
+-J, --json
+    Output json.
+
+-T, --tree
+    Output token tree.
+
+-Y, --yes
+    Overwrite output file.
+
+-h
+    Print short help.
+
+-H, --help
+    Print help.
+</pre></code>
+<h1 id="Features">Features</h1>
+<p>Commonmark standard (gfm tables) as parsed by <em>markdown-it-py</em> plus some hacky
+additions:</p>
+<ul>
+<li>add id tags to every heading element</li>
+<li>parse front-matter for metadata (without <em>front_matter</em> plugin)</li>
+<li>customized code blocks (make PS1 prompt its own span for styling)</li>
+</ul>
+<h2 id="Features Roadmap">Features Roadmap</h2>
+<ul>
+<li>table of contents (customized names, not just a copy of heading content)</li>
+<li>reference links/variables in bottom-matter substituted in</li>
+<li>syntax highlighting</li>
+<li>images, galleries</li>
+<li>maybe build plugins rather than hacking straight on the source as much</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{metadata}
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="data:,">
+</head>
+
+<body>
+{content}
+</body>
+</html>
