@@ -201,7 +201,7 @@ def main() -> int:
     # write to output file:
     else:
         with open(args.output, 'w') as w:
-            w.write(output_text)
+            print(output_text, file=w)
 
     return 0
 

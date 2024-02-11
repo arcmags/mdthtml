@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: mdthtml
+Version: 0.0.1
+Summary: Convert commonmark+ flavored markdown to HTML
+Author-email: Chris Magyar <c.magyar.ec@gmail.com>
+License: GPL-3.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: markdown-it-py
+Requires-Dist: mdit-py-plugins
+Requires-Dist: pyyaml
+
 ---
 title: mdthtml
 author: Chris Magyar
