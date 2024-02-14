@@ -96,19 +96,28 @@ class MarkdownHTML:
         self.reset()
         self.text = text
 
-        # extract metadata from front matter:
+        # extract metadata from front/back matter:
         lines = text.splitlines()
-        front_matter = ''
+        lines_new = []
+        meta_yaml = ''
         i = 0
-        if lines[i] == '---':
-            i += 1
-            while lines[i] != '---' and i < len(lines):
-                front_matter += f'{lines[i]}\n'
-                i += 1
-            self.text = '\n'.join(lines[i+1:])
-        self.meta = yaml.safe_load(front_matter)
+        capture = False
+        for line in lines:
+            i = i + 1
+            if line == '<!--metadata:' or (i == 1 and line == '---'):
+                capture = True
+                continue
+            if line == '-->' or (capture and line == '---'):
+                capture = False
+                continue
+            if not capture:
+                lines_new += [line]
+                continue
+            meta_yaml += f'{line}\n'
+        self.meta = yaml.safe_load(meta_yaml)
         if self.meta is None:
             self.meta = {}
+        self.text = '\n'.join(lines_new)
 
         # set metadata from arguments:
         if css_path is not None:

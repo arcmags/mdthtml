@@ -11,15 +11,16 @@ of hacky right now, but it works alright for my purposes.
 
 ## Installation
 
-This is beta-alpha right now so it ain't on PyPI yet!
+This is beta-alpha right now so it ain't on PyPI yet. Clone this repo and
+build/run/install manually.
 
-Clone the repo and use make to build and install into a venv:
+Build python package:
 
-    $ make venv
+    $ python -m build
 
-Or install into a pipx managed venv:
+Build package, install in a virtual environment, and run all tests:
 
-    $ make pipx
+    $ make test
 
 ## Python API Usage
 
@@ -97,7 +98,7 @@ Commonmark standard (gfm tables) as parsed by *markdown-it-py* plus some hacky
 additions:
 
 - add id tags to every heading element
-- parse front-matter for metadata (without *front_matter* plugin)
+- parse front-matter and back-matter for metadata
 - customized code blocks (make PS1 prompt its own span for styling)
 
 ### Features Roadmap

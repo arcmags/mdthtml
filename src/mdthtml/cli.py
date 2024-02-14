@@ -52,6 +52,7 @@ OPTIONS
 """
 
 # TODO: allow this script to run on it's own, relative imports? add to path?
+# TODO: deal with relative path and no css arg
 
 import argparse
 import os
